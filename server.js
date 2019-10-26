@@ -1,9 +1,6 @@
 //require package
 const express = require('express');
 
-const path = require('path');
-
-
 const app = express();
 
 
@@ -16,6 +13,8 @@ app.use(express.json());
 
 require("./app/routing/htmlRoutes")(app);
 require("./app/routing/apiRoutes")(app);
+
+app.use(express.static("public"));
 
 app.listen(PORT, function(){
     console.log('App listening on port: ' + PORT);
