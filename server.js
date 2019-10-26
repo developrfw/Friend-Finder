@@ -1,8 +1,11 @@
-const express = require("express");
-const path = require("path");
+//require package
+const express = require('express');
+
+const path = require('path');
 
 
 const app = express();
+
 
 var PORT = process.env.PORT || 8080;
 
@@ -11,9 +14,9 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 
-require("./app/routes/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 
-app.listen(PORT, function() {
-    console.log(`app is listening to http://localhost:${PORT}`);
+app.listen(PORT, function(){
+    console.log('App listening on port: ' + PORT);
 });
-
